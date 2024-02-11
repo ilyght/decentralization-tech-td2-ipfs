@@ -1,3 +1,21 @@
-              - name: IPFS Pinata deploy GitHub action
-                uses: popovoleksandr/ipfs-pinata-deploy-action@v1.6.3
-            
+name: Deploy to IPFS with Pinata
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: IPFS Pinata deploy GitHub action
+        uses: popovoleksandr/ipfs-pinata-deploy-action@v1.6.3
+        with:
+          apiKey: ${{ secrets.PINATA_API_KEY }} # Remplacez ceci par votre clé API Pinata (stockée dans les secrets de votre référentiel)
+          apiSecret: ${{ secrets.PINATA_API_SECRET }} # Remplacez ceci par votre clé secrète API Pinata (stockée dans les secrets de votre référentiel)
+          sourcePath: "test td2 decentralization.txt"
