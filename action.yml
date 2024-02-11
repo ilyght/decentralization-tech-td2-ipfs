@@ -1,0 +1,3 @@
+              - name: IPFS Pinata deploy GitHub action
+                uses: popovoleksandr/ipfs-pinata-deploy-action@v1.6.3
+            
